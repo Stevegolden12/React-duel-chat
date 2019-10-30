@@ -8,8 +8,16 @@ class ChatWindow extends Component {
     this.isDisabled = this.isDisabled.bind(this);
   }
 
-  isDisabled = () => {
-    console.log("Check disabled")
+  state = {
+    isButtonDisable: true
+  }
+
+  isDisabled = (e) => {
+    if (e.target.value === '') {
+      console.log("Check disabled")
+    } else {
+      console.log("Check enabled")
+    }
     return false;
   };
 
@@ -36,9 +44,9 @@ class ChatWindow extends Component {
 
           <div>
             <form className="input-group">
-              <input type="text" className="form-control" placeholder="Enter your message..." />
+            <input type="text" className="form-control" placeholder="Enter your message..." onChange={(e)=>this.isDisabled(e)}/>
               <div className="input-group-append">
-                <button className="btn submit-button" disabled={this.isDisabled()}>
+                <button className="btn submit-button" disabled={this.state.isButtonDisable}>
                   SEND
                   </button>
               </div>
