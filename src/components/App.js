@@ -18,6 +18,9 @@ const messages = [
 ];
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   /*
   If the user did not type anything, he/she should not be
   allowed to submit.
@@ -33,6 +36,8 @@ class App extends Component {
       { username: 'John', text: 'Hi, Amy! Good, you?' },
     ]
   }
+
+
 
   render() {
     return (
